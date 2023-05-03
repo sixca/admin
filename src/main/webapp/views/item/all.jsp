@@ -45,7 +45,7 @@
                             </td>
                             <td><a href="/item/detail?id=${obj.id}">${obj.id}</a></td>
                             <td>${obj.name}</td>
-                            <td><fmt:formatNumber value="${obj.price}" type="currency"/></td>
+                            <td><fmt:formatNumber type="number" pattern="###,###원" value="${obj.price}" /></td>
                             <td><fmt:formatDate value="${obj.rdate}" pattern="yyyy-MM-dd"/></td>
                         </tr>
                         <!-- Modal -->

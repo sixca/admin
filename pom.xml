@@ -23,7 +23,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-<!--	에러체크? 유효성 검사?	-->
+<!--	에러체크를 위한 유효성 검사	-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>

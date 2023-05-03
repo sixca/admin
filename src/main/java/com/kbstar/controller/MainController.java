@@ -57,16 +57,16 @@ public class MainController {
             adm = admService.get(id);
             if(adm != null && encoder.matches(pwd, adm.getPwd())){    //아이디가 있고, 해당하는 아이디의 pwd를 비교 후 일치하면
                 nextPage = "loginok";
-                session.setMaxInactiveInterval(100000);  //세션 유지 시간 설정 :: 100초? 지나면 세션 종료(로긴 튕김)
+                session.setMaxInactiveInterval(1000);  //세션 유지 시간 설정 :: 1000초 지나면 세션 종료(로긴 튕김)
                 session.setAttribute("loginadm", adm);   //쎄션에 로긴정보를 박아두는 것  .. index에도 나오는 loginadm
+                return "redirect:/";
             }
         } catch (Exception e) {
             throw new Exception("시스템 장애, 잠시 후 다시 로그인 하세요");
         }
-        model.addAttribute("radm", adm);
+//        model.addAttribute("radm", adm);
         model.addAttribute("center", nextPage);
         return "index";
-//        return "redirect:/";
     }
 
     @RequestMapping("/register")
@@ -85,10 +85,11 @@ public class MainController {
         } catch (Exception e) {
             throw new Exception("가입오류");
         }
-        model.addAttribute("radm", adm);
-        model.addAttribute("center", "registerok");
-        return "index";
-//        return "redirect:/";
+//        model.addAttribute("radm", adm);
+//        model.addAttribute("center", "registerok");
+        // 성공 시 registerok 화면 띄운 것 지우고, 루트화면으로 가도록.
+        //return "index";
+        return "redirect:/";
     }
 
     @RequestMapping("/tables")

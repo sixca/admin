@@ -58,7 +58,7 @@ public class CustController {
     }
 
     @RequestMapping("/detail")   //로그인 사용자 아이디 클릭 시 정보조회
-    public String detail(Model model, String id) throws Exception {
+    public String detail(Model model, String id) throws Exception {   // /cust/detail?id=${obj.id} 써먹으려면 String id를 받아야
         Cust cust =null;
         try {
             cust = custService.get(id);
