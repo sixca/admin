@@ -2,23 +2,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--id, name, price, img, rdate 중 name과 price만 사용자가 수정할 수 있겠지--%>
 <script>
-    let item_add={
+    let marker_add={
         init: function(){
             $('#register_btn').click(function(){
-                item_add.send();
+                marker_add.send();
             });
         },
         send: function(){
             $('#register_form').attr({
                 method:'post',
-                action:'/item/addimpl',
+                action:'/marker/addimpl',
                 enctype: 'multipart/form-data'  // 폼과 폼 사이에 파일에 대한 정보도 사용하겠다.. 선언
             });
             $('#register_form').submit();
         }
     };
     $(function (){
-        item_add.init();
+        marker_add.init();
     });
 </script>
 
@@ -32,24 +32,43 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Item Add</h6>
             </div>
+<%--     id(제외), title, target, lat, lng, img, loc      --%>
             <div class="card-body">
                     <form id="register_form" class="form-horizontal well">
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="name">NAME:</label>
+                            <label class="control-label col-sm-2" for="title">title:</label>
                             <div class="col-sm-10">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter name">
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="price">PRICE:</label>
+                            <label class="control-label col-sm-2" for="target">target:</label>
                             <div class="col-sm-10">
-                                <input type="number" name="price" class="form-control" id="price" placeholder="Enter price">
+                                <input type="text" name="target" class="form-control" id="target" placeholder="Enter target">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="lat">Latitude:</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="lat" class="form-control" id="lat" placeholder="Enter latitude">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="lng">longtitude:</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="lng" class="form-control" id="lng" placeholder="Enter longtitude">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="img">IMG:</label>
                             <div class="col-sm-10">
                                 <input type="file" name="img" class="form-control" id="img" placeholder="Input img">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="loc">LOC:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="loc" class="form-control" id="loc" placeholder="Enter loc..(S, B, J)">
                             </div>
                         </div>
 

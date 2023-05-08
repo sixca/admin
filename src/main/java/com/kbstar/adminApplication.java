@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class adminApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(adminApplication.class, args);
+		SpringApplication.run(ws0504Application.class, args);
 	}
 
 	@Bean

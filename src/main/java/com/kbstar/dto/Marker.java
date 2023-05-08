@@ -1,6 +1,7 @@
 package com.kbstar.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,5 +16,16 @@ public class Marker {
     private double lng;   //float 도 가능요
     private String img;
     private String loc;
+
+    private MultipartFile imgMarker; //추가 :: img(이미지 네임)를 파일 덩어리 자체로 변환
+
+    public Marker(int id, String title, String target, double lat, double lng, String img, String loc) {
+        this.id = id;
+        this.title = title;
+        this.target = target;
+        this.lat = lat;
+        this.lng = lng;
+        this.img = img;
+        this.loc = loc;
+    }
 }
-//loc 추가하여 해당 loc 주변에 맛집 데이터를 가져오기 위해 Marker DTO 생성함

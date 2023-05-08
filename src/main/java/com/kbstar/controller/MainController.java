@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -46,6 +45,12 @@ public class MainController {
             session.invalidate();        //세션에서 정보를 없애라
         }
         return "redirect:/";
+    }
+
+    @RequestMapping("/websocket")
+    public String websocket(Model model){
+        model.addAttribute("center", "websocket");
+        return "index";
     }
 
     @RequestMapping("/loginimpl")
@@ -102,9 +107,9 @@ public class MainController {
 //            list.add(new ItemDTO(104,"커피",5000,"e.jpg",new Date()));
         //위아래 리스트를 둘 다 사용하려면, list1, list2으로 각각 저장하고, 또 각각 foreach로 jsp에 구현하면 가능
 
-        for(int i=1 ; i < 100 ; i++ ){
-            list.add(new Item(i, "상품"+ i, (int)Math.round(Math.random() * 10000), "a.jpg", new Date()));
-        }
+//        for(int i=1 ; i < 100 ; i++ ){
+//            list.add(new Item(i, "상품"+ i, (int)Math.round(Math.random() * 10000), "a.jpg", new Date()));
+//        }
         model.addAttribute("allitem", list);
         model.addAttribute("center", "tables");
         return "index";
